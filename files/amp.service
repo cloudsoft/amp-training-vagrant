@@ -1,0 +1,11 @@
+[Unit]
+Description=Cloudsoft AMP service
+
+[Service]
+ExecStart=/home/vagrant/cloudsoft-amp/bin/amp launch --persist auto --persistenceDir /vagrant/amp-persistence
+Restart=on-abort
+User=vagrant
+Group=vagrant
+
+[Install]
+WantedBy=multi-user.target
