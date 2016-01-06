@@ -5,7 +5,7 @@ Vagrant files to bootstrap an AMP training environment consisting of an AMP inst
 
 This assumes you have already installed Virtualbox and Vagrant on your local machine and have external network access to the Ubuntu update repositories and the Cloudsoft Artifactory.
 
-The supplied `server.yaml` defines both an AMP node and 3 small BYON nodes, you can ignore the BYON nodes if you only intend to test using cloud locations.
+The supplied `server.yaml` defines both an AMP node and 3 small BYON nodes, you can ignore the BYON nodes if you only intend to demonstrate using cloud locations.
 
 AMP is deployed with login authentication disabled and persistance enabled by default (mapped through to the `amp-persistance` directory in your local repo).
 
@@ -70,7 +70,7 @@ The provided Vagrant config should work on OSX, Linux or Windows.
     sudo tail -f /var/log/syslog
     ```
  
-### Customising Test VMs 
+### Customising Training VMs 
 The following optional steps are provided to describe how you may override the default VM configurations.
 
 #### AMP Version
