@@ -30,7 +30,7 @@ The provided Vagrant config should work on OSX, Linux or Windows.
 
 ### Starting BYON Nodes
 
-1. From the repo directory you can start the BYON nodes with. (Note that you can add additional nodes to `server.yaml` if desired)
+1. From the repo directory you can start the BYON nodes with. (Note that you can add additional nodes to `servers.yaml` if desired)
 
     ```
     vagrant up byon1 byon2 byon3 byon4
