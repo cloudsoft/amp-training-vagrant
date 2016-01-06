@@ -2,7 +2,7 @@
 # # vi: set ft=ruby :
 
 # Specify minimum Vagrant version and Vagrant API version
-Vagrant.require_version ">= 1.6.0"
+Vagrant.require_version ">= 1.8.0"
 VAGRANTFILE_API_VERSION = "2"
 
 # Require YAML module

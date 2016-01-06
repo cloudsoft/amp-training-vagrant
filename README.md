@@ -1,6 +1,10 @@
 # amp-training-vagrant
 Vagrant files to bootstrap an AMP training environment consisting of an AMP instance and multiple byon nodes based on Ubuntu Vivid64.
 
+The Vagrant environment has been verified on OSX 10.11 and Windows 10 using Vagrant 1.8.0+ and VirtualBox 5.0.10+. It is recommended to use the latest version of both Vagrant and Virtualbox.
+
+![Vagrant 1.8.0+](https://img.shields.io/badge/vagrant-1.8.0%2B-green.svg) ![Virtualbox 5.0.10+](https://img.shields.io/badge/Virtualbox-5.0.10%2B-green.svg) ![OSX 10.11](https://img.shields.io/badge/OSX-10.11-green.svg) ![Windows 10](https://img.shields.io/badge/Windows-10-green.svg)
+
 ## How to use
 
 This assumes you have already installed Virtualbox and Vagrant on your local machine and have external network access to the Ubuntu update repositories and the Cloudsoft Artifactory.
@@ -8,8 +12,6 @@ This assumes you have already installed Virtualbox and Vagrant on your local mac
 The supplied `server.yaml` defines both an AMP node and 3 small BYON nodes, you can ignore the BYON nodes if you only intend to demonstrate using cloud locations.
 
 AMP is deployed with login authentication disabled and persistance enabled by default (mapped through to the `amp-persistance` directory in your local repo).
-
-The provided Vagrant config should work on OSX, Linux or Windows.
 
 ### Starting AMP Node
 
