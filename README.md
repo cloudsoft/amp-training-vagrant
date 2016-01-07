@@ -96,8 +96,8 @@ You can override the IP addresses assigned to each node by changing the `ip` for
 #### VM Resources
 You can alter the base OS, number of CPUs and amount of RAM allocated to each VM by altering the `box`, `cpu` or `ram` fields in `server.yaml`. For example to switch a VM to Ubuntu Trust64 with 3 cpu cores and 1GB of RAM you would change the fields as follows:
 
-    ```
-    box: ubuntu/trusty64
-    ram: 1024
-    cpus: 3
-    ```
+```
+box: ubuntu/trusty64
+ram: 1024
+cpus: 3
+```
