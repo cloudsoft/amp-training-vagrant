@@ -9,15 +9,17 @@ VAGRANTFILE_API_VERSION = "2"
 require 'yaml'
 
 # Read YAML file with box details
-servers = YAML.load_file(__dir__ + '/servers.yaml')
+yaml_cfg = YAML.load_file(__dir__ + '/servers.yaml')
 
 # Create boxes
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Iterate through server entries in YAML file
-  servers.each do |server|
+  yaml_cfg["servers"].each do |server|
     config.vm.define server["name"] do |server_config|
       server_config.vm.box = server["box"]
+
+      server_config.vm.box_check_update = yaml_cfg["default_config"]["box_check_update"]
 
       if server.has_key?("ip")
         server_config.vm.network "private_network", ip: server["ip"]
@@ -35,11 +37,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.memory = server["ram"]
         vb.cpus = server["cpus"]
       end
+      
       if server["shell"] && server["shell"]["cmd"]
         server["shell"]["cmd"].each do |cmd|
           server_config.vm.provision "shell", privileged: false, inline: cmd, env: server["shell"]["env"]
         end
-       end
+      end
+
+      server_config.vm.post_up_message = server["post_up_message"]
     end
   end
 end
