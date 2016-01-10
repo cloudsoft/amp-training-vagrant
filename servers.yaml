@@ -1,6 +1,7 @@
 ---
 default_config:
-    box_check_update: false
+    check_newer_vagrant_box: false
+    run_os_update: false
 servers:
   - name: amp
     box: ubuntu/vivid64

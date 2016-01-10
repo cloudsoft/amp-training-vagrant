@@ -5,6 +5,9 @@
 Vagrant.require_version ">= 1.8.0"
 VAGRANTFILE_API_VERSION = "2"
 
+# Update OS (Debian/RedHat based only)
+UPDATE_OS_CMD = "(sudo apt-get update && sudo apt-get -y upgrade) || (sudo yum -y update)"
+
 # Require YAML module
 require 'yaml'
 
@@ -19,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define server["name"] do |server_config|
       server_config.vm.box = server["box"]
 
-      server_config.vm.box_check_update = yaml_cfg["default_config"]["box_check_update"]
+      server_config.vm.box_check_update = yaml_cfg["default_config"]["check_newer_vagrant_box"]
 
       if server.has_key?("ip")
         server_config.vm.network "private_network", ip: server["ip"]
@@ -36,6 +39,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.name = server["name"]
         vb.memory = server["ram"]
         vb.cpus = server["cpus"]
+      end
+      
+      if yaml_cfg["default_config"]["run_os_update"]
+        server_config.vm.provision "shell", privileged: false, inline: UPDATE_OS_CMD
       end
       
       if server["shell"] && server["shell"]["cmd"]

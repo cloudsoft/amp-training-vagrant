@@ -9,7 +9,7 @@ The Vagrant environment has been verified on OSX 10.11 and Windows 10 using Vagr
 
 This assumes you have already installed Virtualbox and Vagrant on your local machine and have external network access to the Ubuntu update repositories and the Cloudsoft Artifactory.
 
-The supplied `server.yaml` defines both an AMP node and 3 small BYON nodes, you can ignore the BYON nodes if you only intend to demonstrate using cloud locations.
+The supplied `servers.yaml` defines both an AMP node and 3 small BYON nodes, you can ignore the BYON nodes if you only intend to demonstrate using cloud locations.
 
 AMP is deployed with login authentication disabled and persistance enabled by default (mapped through to the `amp-persistance` directory in your local repo).
 
@@ -76,7 +76,10 @@ AMP is deployed with login authentication disabled and persistance enabled by de
 The following optional steps are provided to describe how you may override the default VM configurations.
 
 #### AMP Version
-You can either use the default AMP version or override by changing the `AMP_VERSION` field in `server.yaml`.
+You can either use the default AMP version or override by changing the `AMP_VERSION` field in `servers.yaml`.
+
+#### Running OS Updates
+As a convenience you can set `run_os_update` to `true` in the `servers.yaml` file to automatically run package updates for `apt` and `rpm` based distros. This defaults to `false` to minimise the amount of data downloaded.
 
 #### IP Addresses
 All nodes will start with a private interface on the 10.10.10.0/24 network. The default IPs assigned to each node are as follows:
@@ -89,12 +92,12 @@ All nodes will start with a private interface on the 10.10.10.0/24 network. The 
 | byon3        | 10.10.10.103 |
 | byon4        | 10.10.10.104 |
 
-You can override the IP addresses assigned to each node by changing the `ip` for each machine in `server.yaml`
+You can override the IP addresses assigned to each node by changing the `ip` for each machine in `servers.yaml`
 
 **NOTE** These private addresses will only be accessible from your local machine. It is possible, but not documented, to expose some service ports via your local machine (reach out if you believe this would be useful for you).
 
 #### VM Resources
-You can alter the base OS, number of CPUs and amount of RAM allocated to each VM by altering the `box`, `cpu` or `ram` fields in `server.yaml`. For example to switch a VM to Ubuntu Trust64 with 3 cpu cores and 1GB of RAM you would change the fields as follows:
+You can alter the base OS, number of CPUs and amount of RAM allocated to each VM by altering the `box`, `cpu` or `ram` fields in `servers.yaml`. For example to switch a VM to Ubuntu Trust64 with 3 cpu cores and 1GB of RAM you would change the fields as follows:
 
 ```
 box: ubuntu/trusty64
