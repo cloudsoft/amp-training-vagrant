@@ -3,6 +3,7 @@ Description=Cloudsoft AMP service
 
 [Service]
 ExecStart=/home/vagrant/cloudsoft-amp/bin/amp launch --persist auto --persistenceDir /vagrant/amp-persistence
+WorkingDirectory=/home/vagrant/cloudsoft-amp
 Restart=on-abort
 User=vagrant
 Group=vagrant
