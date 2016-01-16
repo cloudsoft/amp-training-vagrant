@@ -13,7 +13,8 @@ servers:
         AMP_VERSION: 3.1.0-20160115.1845
       cmd:
         - sudo systemctl restart rsyslog
-        - sudo sh -c 'export DEBIAN_FRONTEND=noninteractive; apt-get install --yes python-pip'
+        - sudo sh -c 'export DEBIAN_FRONTEND=noninteractive; apt-get install --yes openjdk-8-jre-headless python-pip shellinabox'
+        - sudo sed -i '/SHELLINABOX_ARGS/c\SHELLINABOX_ARGS="--no-beep --disable-ssl"' /etc/default/shellinabox
         - sudo pip install tailon > /dev/null 2>&1
         - sudo mkdir /var/log/amp
         - sudo chown vagrant:vagrant /var/log/amp; touch /var/log/amp/brooklyn.{debug,info}.log
@@ -22,7 +23,6 @@ servers:
         - mv cloudsoft-amp-${AMP_VERSION} cloudsoft-amp
         - ln -s /var/log/amp /home/vagrant/cloudsoft-amp/log
         - cp /vagrant/files/logback.xml /home/vagrant/cloudsoft-amp/conf/
-        - sudo sh -c 'export DEBIAN_FRONTEND=noninteractive; apt-get install --yes openjdk-8-jre-headless'
         - sudo ln -s /vagrant/files/amp.service /etc/systemd/system/amp.service
         - sudo ln -s /vagrant/files/tailon.service /etc/systemd/system/tailon.service
         - mkdir -p /home/vagrant/.brooklyn
@@ -30,6 +30,7 @@ servers:
         - chmod 600 /home/vagrant/.brooklyn/brooklyn.properties
         - sudo systemctl start amp
         - sudo systemctl start tailon
+        - sudo systemctl restart shellinabox
   - name: byon1
     box: ubuntu/vivid64
     ram: 512

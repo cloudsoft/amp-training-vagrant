@@ -52,6 +52,22 @@ AMP is deployed with login authentication disabled and persistance enabled by de
           - 10.10.10.104
     ````
 
+### Terminal Access to AMP Node
+
+Web based terminal access to the AMP VM is available via [shellinabox](https://help.ubuntu.com/community/shellinabox) (user `vagrant`, password `vagrant`):
+
+- http://10.10.10.100:4200/
+
+You may also connect using `vagrant ssh <node name>`, for example:
+
+    vagrant ssh amp
+
+Or by ssh'ing to the VM as the `vagrant` user:
+
+    ssh vagrant@10.10.10.100
+
+See the [IP Addresses section](#IP-Addresses).
+
 ### Viewing AMP Logs
 
 AMP and system logs are accessible via the [Tailon](http://tailon.rtfd.org/) webapp:
