@@ -54,23 +54,13 @@ AMP is deployed with login authentication disabled and persistance enabled by de
 
 ### Viewing AMP Logs
 
-1. To view logs you must first connect to the AMP VM (from the root of this repository):
+AMP and system logs are accessible via the [Tailon](http://tailon.rtfd.org/) webapp (selected via the drop-down on the top left):
 
-    ```
-    vagrant ssh amp
-    ```
+- http://10.10.10.100:9000/
 
-2. As AMP is being started by systemd in this VM you can view the logs from the amp unit as follows:
+Update the Tailon configuration to increase the number of lines displayed by clicking the wrench icon.
 
-    ```
-    sudo journalctl -u amp
-    ```
-    
-    Alternatively you can view them directly in the syslog:
-
-    ```
-    sudo tail -f /var/log/syslog
-    ```
+[[https://github.com/cloudsoft/amp-training-vagrant/blob/feature/tailon/files/tailon_config.png|alt=tailon_config]]
  
 ### Customising Training VMs 
 The following optional steps are provided to describe how you may override the default VM configurations.
