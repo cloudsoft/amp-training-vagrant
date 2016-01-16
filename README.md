@@ -54,11 +54,15 @@ AMP is deployed with login authentication disabled and persistance enabled by de
 
 ### Viewing AMP Logs
 
-AMP and system logs are accessible via the [Tailon](http://tailon.rtfd.org/) webapp (selected via the drop-down on the top left):
+AMP and system logs are accessible via the [Tailon](http://tailon.rtfd.org/) webapp:
 
 - http://10.10.10.100:9000/
 
-Update the Tailon configuration to increase the number of lines displayed by clicking the wrench icon.
+Select a log to display from the menu bar:
+
+![Tailon log selection](/files/tailon_log_selection.png?raw=true "Tailon log selection")
+
+Tailons configuration can be altered to increase the number of lines displayed by clicking the wrench icon.
 
 ![Tailon config](/files/tailon_config.png?raw=true "Tailon config")
  
