@@ -60,7 +60,7 @@ AMP and system logs are accessible via the [Tailon](http://tailon.rtfd.org/) web
 
 Update the Tailon configuration to increase the number of lines displayed by clicking the wrench icon.
 
-[[https://github.com/cloudsoft/amp-training-vagrant/blob/feature/tailon/files/tailon_config.png|alt=tailon_config]]
+![Tailon config](/files/tailon_config.png?raw=true "Tailon config")
  
 ### Customising Training VMs 
 The following optional steps are provided to describe how you may override the default VM configurations.
