@@ -10,7 +10,7 @@ servers:
     ip: 10.10.10.100 
     shell:
       env:
-        AMP_VERSION: 3.1.0-20151223.1015
+        AMP_VERSION: 3.1.0-20160115.1845
       cmd:
         - curl -o cloudsoft-amp.tar.gz -s -S http://artifactory.cloudsoftcorp.com/artifactory/libs-release-local/io/cloudsoft/amp/amp-dist/${AMP_VERSION}/amp-dist-${AMP_VERSION}-dist.tar.gz
         - tar zxf cloudsoft-amp.tar.gz
