@@ -52,25 +52,35 @@ AMP is deployed with login authentication disabled and persistance enabled by de
           - 10.10.10.104
     ````
 
+### Terminal Access to AMP Node
+
+Web based terminal access to the AMP VM is available via [shellinabox](https://help.ubuntu.com/community/shellinabox) (user `vagrant`, password `vagrant`):
+
+- http://10.10.10.100:4200/
+
+You may also connect using `vagrant ssh <node name>`, for example:
+
+    vagrant ssh amp
+
+Or by ssh'ing to the VM as the `vagrant` user:
+
+    ssh vagrant@10.10.10.100
+
+See the [IP Addresses section](#IP-Addresses).
+
 ### Viewing AMP Logs
 
-1. To view logs you must first connect to the AMP VM (from the root of this repository):
+AMP and system logs are accessible via the [Tailon](http://tailon.rtfd.org/) webapp:
 
-    ```
-    vagrant ssh amp
-    ```
+- http://10.10.10.100:9000/
 
-2. As AMP is being started by systemd in this VM you can view the logs from the amp unit as follows:
+Select a log to display from the menu bar:
 
-    ```
-    sudo journalctl -u amp
-    ```
-    
-    Alternatively you can view them directly in the syslog:
+![Tailon log selection](/files/tailon_log_selection.png?raw=true "Tailon log selection")
 
-    ```
-    sudo tail -f /var/log/syslog
-    ```
+Tailons configuration can be altered to increase the number of lines displayed by clicking the wrench icon.
+
+![Tailon config](/files/tailon_config.png?raw=true "Tailon config")
  
 ### Customising Training VMs 
 The following optional steps are provided to describe how you may override the default VM configurations.
