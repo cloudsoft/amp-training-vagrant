@@ -2,7 +2,7 @@
 Description=Tailon service
 
 [Service]
-ExecStart=/usr/local/bin/tailon -c /vagrant/files/tailon.conf
+ExecStart=/usr/local/bin/tailon -c /vagrant/files/tailon.conf -d
 Restart=on-abort
 
 [Install]
