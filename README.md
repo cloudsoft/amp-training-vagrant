@@ -1,5 +1,5 @@
 # amp-training-vagrant
-Vagrant files to bootstrap an AMP training environment consisting of an AMP instance and multiple byon nodes based on Ubuntu Vivid64.
+Vagrant files to bootstrap an AMP training environment consisting of an AMP instance and multiple byon nodes based on Centos.
 
 The Vagrant environment has been verified on OSX 10.11 and Windows 10 using Vagrant 1.8.0+ and VirtualBox 5.0.10+. It is recommended to use the latest version of both Vagrant and Virtualbox.
 
@@ -9,7 +9,7 @@ The Vagrant environment has been verified on OSX 10.11 and Windows 10 using Vagr
 
 This assumes you have already installed Virtualbox and Vagrant on your local machine and have external network access to the Ubuntu update repositories and the Cloudsoft Artifactory.
 
-The supplied `servers.yaml` defines both an AMP node and 3 small BYON nodes, you can ignore the BYON nodes if you only intend to demonstrate using cloud locations.
+The supplied `servers.yaml` defines both an AMP node (ubuntu) and 3 small BYON nodes (centos), you can ignore the BYON nodes if you only intend to demonstrate using cloud locations.
 
 AMP is deployed with login authentication disabled and persistance enabled by default (mapped through to the `amp-persistance` directory in your local repo).
 
@@ -110,7 +110,7 @@ You can override the IP addresses assigned to each node by changing the `ip` for
 You can alter the base OS, number of CPUs and amount of RAM allocated to each VM by altering the `box`, `cpu` or `ram` fields in `servers.yaml`. For example to switch a VM to Ubuntu Trust64 with 3 cpu cores and 1GB of RAM you would change the fields as follows:
 
 ```
-box: ubuntu/trusty64
+box: bento/centos-6.7
 ram: 1024
 cpus: 3
 ```
