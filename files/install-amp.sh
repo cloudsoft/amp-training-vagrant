@@ -8,7 +8,7 @@ JAVA_VERSION=8
 export JAVA_HOME=/usr/lib/jvm/java-${JAVA_VERSION}-openjdk-amd64/
 
 echo "Download AMP"
-curl -o cloudsoft-amp-karaf-all.deb -s -S https://artifactory.cloudsoftcorp.com/artifactory/libs-release-local/io/cloudsoft/amp/cloudsoft-amp-karaf/4.1.0-20160923.2144/cloudsoft-amp-karaf-4.1.0-20160923.2144-all.deb
+curl -o cloudsoft-amp-karaf-all.deb -s -S http://download.cloudsoft.io/amp/4.latest/cloudsoft-amp-karaf-4.latest-all.deb
 # curl -o cloudsoft-amp-karaf-all.deb -s -S http://downloads.cloudsoftcorp.com/amp/latest/cloudsoft-amp-karaf-latest-all.deb
 
 echo "Validate downloaded file is an archive"
